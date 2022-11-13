@@ -49,6 +49,13 @@
     "prettier": "^2.7.1"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix"
-  }
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  },  
+  "husky": {
+    "hooks": {
+        "pre-commit": "lint-staged && npm test",
+        "pre-push": "npm test"
+    }
+}
 }
