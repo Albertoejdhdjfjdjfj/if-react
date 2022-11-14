@@ -1,7 +1,9 @@
 import arrowLeft from '../images/arrow.png';
-import "./HomesGuestLoves.css"
+import "./HomesGuestLoves.css";
 
 function Slider(props) {
+   let bodyWidth=window.getComputedStyle(document.querySelector('body')).width.slice(0,-2);
+   console.log(bodyWidth);
   return (
      <div className="slider" style={{width: '85.8vw'}} >
      <div className="slidesOfSlider" style={{left:0,width:'85vw'}}>
