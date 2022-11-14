@@ -1,4 +1,4 @@
-@import url('../../index.css');
+@import url('../../fonts/fonts.css');
 
 *{
      padding: 0;
@@ -12,7 +12,7 @@
      --bg-col-of-section:#EAF0F9;
      --font-col-blue:#3077C6;
      --font-col-dark-gray:#383838;
-     --font-size-H2:45px;
+     --font-size-H2:40px;
 }
 
 .HomesGuestloves{
@@ -28,9 +28,11 @@ h2{
    text-align: center;
    color: var(--font-col-dark-gray);
    font-size: var(--font-size-H2);
+   font-weight: 500;
 }
 
 .slider{
+     width: '85.8vw';
      margin-top: 106px;
      height: 403px;
      display: flex;
@@ -54,12 +56,22 @@ h2{
      position: relative;
      left:0;
      transition: all ease 1s;
+     left:0px;
+     width:85vw;
 }
 
+.slide{
+     width: 296px;
+     margin-left: 16px;
+}
+
+.slide>img{
+     width: 296px;
+}
 
 @media (max-width: 728px) {
      .slider>img{
-          width: 40px;
+          width: 
           height: 40px;
           position: absolute;
           z-index: 2;
