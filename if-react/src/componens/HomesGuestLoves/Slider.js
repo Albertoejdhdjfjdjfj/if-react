@@ -9,7 +9,7 @@ function Slider(props) {
       <div className="slidesOfSlider">
         {props.data.map((item) => (
           <div className="slide" key={item.id}>
-            <img src={item.imageUrl} />
+            <img src={item.imageUrl} alt={item.name}/>
             <p>{item.name}</p>
             <p>
               {item.city} {item.country}
