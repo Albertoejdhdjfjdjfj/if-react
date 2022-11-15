@@ -1,6 +1,7 @@
-@import url('../../fonts/fonts.css');
 
-*{
+@import url('../../assets/fonts/fonts.css');
+
+* {
      padding: 0;
      margin: 0;
      box-sizing: border-box;
@@ -16,7 +17,7 @@
      --font-size-H2:40px;
 }
 
-.HomesGuestloves{
+.homesGuestloves{
      height: 828px;
      display: flex;
      flex-direction: column;
@@ -33,7 +34,7 @@ h2{
 }
 
 .slider{
-     width: '85.8vw';
+     width: 85.8vw;
      margin-top: 106px;
      height: 403px;
      display: flex;
@@ -49,7 +50,6 @@ h2{
       margin-top: 128px;
       margin-left: 84.47vw;
 }
-
 
 .slidesOfSlider{
      display: flex;
@@ -71,17 +71,18 @@ h2{
 }
 
 .slide>p{
-  font-size: 24px;
-  font-weight: 400;   
+     font-size: 24px;
+     font-weight: 400;   
 }
 
 .slide>p:nth-child(2){
      color: var(--font-col-blue);
- }
+}
 
- .slide>p:nth-child(3){
+.slide>p:nth-child(3){
      color: var(--font-col-light-gray);
- }
+}
+
 
 @media (max-width: 400px) {
   
@@ -98,34 +99,31 @@ h2{
          width: 90vw;
          height: 193px;
          margin-top: 32px;
-      }
+     }
       
-      .slider>img{
+     .slider>img{
           width: 28px;
           height: 28px;
           margin-left: 86%;
           margin-top: 65px;
-      }
+     }
 
-      .slidesOfSlider{
+     .slidesOfSlider{
           width: 90vw;
-      }
+     }
 
-      .slide{
+     .slide{
           width: 156px;
           height: 193px;
           margin-left: 15px;
-      }
+     }
     
-      .slide>img{
+     .slide>img{
           width: 156px;
           height: 156px;
      }
 
-      .slide>p{
+     .slide>p{
           font-size: 12px;  
-      }
-
-
-        
+     }
 }

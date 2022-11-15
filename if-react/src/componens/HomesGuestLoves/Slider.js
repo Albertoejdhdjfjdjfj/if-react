@@ -1,15 +1,13 @@
-import arrowLeft from '../images/arrow.png';
 import './HomesGuestLoves.css';
+import arrowLeft from '../../assets/images/arrow.png';
 
 function Slider(props) {
-  let bodyWidth = window.getComputedStyle(document.querySelector('body')).width.slice(0, -2);
-  console.log(bodyWidth);
   return (
     <div className="slider">
       <div className="slidesOfSlider">
         {props.data.map((item) => (
           <div className="slide" key={item.id}>
-            <img src={item.imageUrl} alt={item.name}/>
+            <img src={item.imageUrl} alt={item.name} />
             <p>{item.name}</p>
             <p>
               {item.city} {item.country}
