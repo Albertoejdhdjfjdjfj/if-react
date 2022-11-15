@@ -1,5 +1,6 @@
 import Slider from './Slider';
-import data from '../variables';
+import data from '../../assets/variables';
+
 
 function HomesGuestloves() {
   return (
