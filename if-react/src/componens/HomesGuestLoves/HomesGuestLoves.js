@@ -1,7 +1,6 @@
 import Slider from './Slider';
 import data from '../../assets/variables';
 
-
 function HomesGuestloves() {
   return (
     <div className="homesGuestloves">

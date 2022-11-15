@@ -17,8 +17,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js",
-    "prettier": "prettier --write src/**/*.js",
-    "lint:write": "eslint --debug src/**/*.{js,css} --fix",
+    "prettier": "prettier --write src/**/*{js,css}",
+    "lint:write": "eslint --debug src/**/*.js --fix",
     "prepare": "husky install"
   },
   "eslintConfig": {

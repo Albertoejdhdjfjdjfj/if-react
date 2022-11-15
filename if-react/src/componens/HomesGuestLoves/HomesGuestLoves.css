@@ -1,129 +1,126 @@
-
 @import url('../../assets/fonts/fonts.css');
 
 * {
-     padding: 0;
-     margin: 0;
-     box-sizing: border-box;
-     font-family: "Roboto";
-     text-decoration: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+  text-decoration: none;
 }
 
 :root {
-     --bg-col-of-section:#EAF0F9;
-     --font-col-blue:#3077C6;
-     --font-col-dark-gray:#383838;
-     --font-col-light-gray:#BFBFBF;
-     --font-size-H2:40px;
+  --bg-col-of-section: #eaf0f9;
+  --font-col-blue: #3077c6;
+  --font-col-dark-gray: #383838;
+  --font-col-light-gray: #bfbfbf;
+  --font-size-H2: 40px;
 }
 
-.homesGuestloves{
-     height: 828px;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     background-color: var(--bg-col-of-section);
+.homesGuestloves {
+  height: 828px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-col-of-section);
 }
 
-h2{
-   margin-top: 120px;
-   text-align: center;
-   color: var(--font-col-dark-gray);
-   font-size: var(--font-size-H2);
-   font-weight: 500;
+h2 {
+  margin-top: 120px;
+  text-align: center;
+  color: var(--font-col-dark-gray);
+  font-size: var(--font-size-H2);
+  font-weight: 500;
 }
 
-.slider{
-     width: 85.8vw;
-     margin-top: 106px;
-     height: 403px;
-     display: flex;
-     justify-content: flex-start;
-     overflow: hidden; 
+.slider {
+  width: 85.8vw;
+  margin-top: 106px;
+  height: 403px;
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
 }
 
-.slider>img{
-      width: 40px;
-      height: 40px;
-      position: absolute;
-      z-index: 2;
-      margin-top: 128px;
-      margin-left: 84.47vw;
+.slider > img {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: 2;
+  margin-top: 128px;
+  margin-left: 84.47vw;
 }
 
-.slidesOfSlider{
-     display: flex;
-     width: 85vw;
-     position: relative;
-     left:0;
-     transition: all ease 0.4s;
-     left:0px;
-     width:85vw;
+.slidesOfSlider {
+  display: flex;
+  width: 85vw;
+  position: relative;
+  left: 0;
+  transition: all ease 0.4s;
+  left: 0px;
+  width: 85vw;
 }
 
-.slide{
-     width: 296px;
-     margin-left: 16px;
+.slide {
+  width: 296px;
+  margin-left: 16px;
 }
 
-.slide>img{
-     width: 296px;
+.slide > img {
+  width: 296px;
 }
 
-.slide>p{
-     font-size: 24px;
-     font-weight: 400;   
+.slide > p {
+  font-size: 24px;
+  font-weight: 400;
 }
 
-.slide>p:nth-child(2){
-     color: var(--font-col-blue);
+.slide > p:nth-child(2) {
+  color: var(--font-col-blue);
 }
 
-.slide>p:nth-child(3){
-     color: var(--font-col-light-gray);
+.slide > p:nth-child(3) {
+  color: var(--font-col-light-gray);
 }
-
 
 @media (max-width: 400px) {
-  
-     .HomesGuestloves{
-          height: 354px;
-     }
+  .HomesGuestloves {
+    height: 354px;
+  }
 
-     h2{
-          font-size: 28px;
-          margin-top: 40px;
-     }
+  h2 {
+    font-size: 28px;
+    margin-top: 40px;
+  }
 
-     .slider{
-         width: 90vw;
-         height: 193px;
-         margin-top: 32px;
-     }
-      
-     .slider>img{
-          width: 28px;
-          height: 28px;
-          margin-left: 86%;
-          margin-top: 65px;
-     }
+  .slider {
+    width: 90vw;
+    height: 193px;
+    margin-top: 32px;
+  }
 
-     .slidesOfSlider{
-          width: 90vw;
-     }
+  .slider > img {
+    width: 28px;
+    height: 28px;
+    margin-left: 86%;
+    margin-top: 65px;
+  }
 
-     .slide{
-          width: 156px;
-          height: 193px;
-          margin-left: 15px;
-     }
-    
-     .slide>img{
-          width: 156px;
-          height: 156px;
-     }
+  .slidesOfSlider {
+    width: 90vw;
+  }
 
-     .slide>p{
-          font-size: 12px;  
-     }
+  .slide {
+    width: 156px;
+    height: 193px;
+    margin-left: 15px;
+  }
+
+  .slide > img {
+    width: 156px;
+    height: 156px;
+  }
+
+  .slide > p {
+    font-size: 12px;
+  }
 }
