@@ -24,16 +24,14 @@ module.exports={
                     test:/\.css$/,
                     exclude:/node_modules/,
                     use:[
-                         {
-                              loader:"style-loader"
-                         },
+                         {loader:"style-loader"},
                          {
                               loader:"css-loader",
                               options:{
                                    modules:{
                                         localIdentName:'[name]__[local]__[hash:base64:5]',
                                    },
-                                   sourseMap:true
+                                   sourceMap:true
                               }
                          },
                          {
@@ -47,6 +45,14 @@ module.exports={
                               }
                          }
                     ]
+               },
+               {
+                    test:/\.s[ac]ss$/i,
+                    use:[
+                         'style-loader',
+                         'css-loader',
+                         'sass-loader',
+                    ],
                },
                {
                     test:/\.(png|jpg|svg|gif)$/,
