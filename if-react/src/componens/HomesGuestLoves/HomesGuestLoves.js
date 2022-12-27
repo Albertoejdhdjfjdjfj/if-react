@@ -1,5 +1,6 @@
 import Slider from './Slider';
 import data from '../../assets/variables';
+import React from 'react';
 
 function HomesGuestloves() {
   return (

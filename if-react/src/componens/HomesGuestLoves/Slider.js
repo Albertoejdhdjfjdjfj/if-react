@@ -1,5 +1,5 @@
-import './HomesGuestLoves.css';
 import arrowLeft from '../../assets/images/arrow.png';
+import React from 'react';
 
 function Slider(props) {
   return (
