@@ -1,8 +1,10 @@
-import Slider from './Slider';
-import data from '../../assets/variables';
+import Slider from './Slider/Slider';
 import React from 'react';
+import './HomesGuestloves.css';
+import array from '../../assets/variables';
 
-function HomesGuestloves() {
+function HomesGuestloves({ city }) {
+  const data = array.filter((el) => el.city.includes(city));
   return (
     <div className="homesGuestloves">
       <h2>Homes guests loves</h2>
