@@ -1,4 +1,4 @@
-import arrowLeft from '../../assets/images/arrow.png';
+import arrowLeft from '../../../assets/images/arrow.png';
 import React from 'react';
 
 function Slider(props) {
