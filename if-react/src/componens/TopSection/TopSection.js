@@ -43,7 +43,9 @@ const TopSection = () => {
         <form>
           <input
             id="city_input"
-            onChange={(e) => {setCity(e.target.value)}}
+            onChange={(e) => {
+              setCity(e.target.value);
+            }}
             class="city_input"
             placeholder="NewYork"
             type="search"

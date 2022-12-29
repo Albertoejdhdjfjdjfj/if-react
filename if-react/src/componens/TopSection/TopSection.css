@@ -25,6 +25,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-size: cover;
 }
 
 header {
@@ -118,6 +119,12 @@ form > input {
   color: var(--font-col-dark-gray);
 }
 
+form > input:focus {
+  outline: 0;
+  outline-offset: 0;
+  border: 3px solid #f5bd41;
+}
+
 .date_input {
   width: 21%;
   display: flex;
@@ -164,4 +171,5 @@ form > input {
 
 .wrapper_apps > img {
   width: 135px;
+  height: 40px;
 }
