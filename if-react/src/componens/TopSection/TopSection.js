@@ -9,10 +9,11 @@ import googlePlay from '../../assets/svg/google-play-badge.svg';
 import appStore from '../../assets/svg/App_Store.svg';
 import background from '../../assets/images/castelmezzano.jpg';
 
-const TopSection = ({onChange}) => {
-  const handleDistChange=(e)=>{
+const TopSection = ({ onChange }) => {
+  const handleDistChange = (e) => {
     onChange(e.target.value);
-  }
+  };
+
   return (
     <div>
       <div className="top_section" style={{ backgroundImage: `url(${background})` }}>
@@ -43,23 +44,17 @@ const TopSection = ({onChange}) => {
         </div>
 
         <form>
-          <input
-            id="city_input"
-            onChange={handleDistChange}
-            class="city_input"
-            placeholder="NewYork"
-            type="search"
-          />
+          <input id="city_input" onChange={handleDistChange} placeholder="NewYork" type="search" />
           <div className="date_input">
             <div>Check-in</div>
             <div>-</div>
             <div>Check-out</div>
           </div>
-          <div class="num_people_input">0 Adults — 0 Children — 0Room</div>
+          <div className="num_people_input">0 Adults — 0 Children — 0Room</div>
           <div className="searchButton">Search</div>
         </form>
 
-        <div class="wrapper_apps">
+        <div className="wrapper_apps">
           <img src={`${googlePlay}`} />
           <img src={`${appStore}`} />
         </div>

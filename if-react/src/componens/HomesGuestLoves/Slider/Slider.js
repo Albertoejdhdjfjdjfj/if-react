@@ -1,13 +1,15 @@
 import arrowLeft from '../../../assets/images/arrow.png';
 import React from 'react';
 
-function Slider(props) {
+function Slider({ data }) {
   return (
     <div className="slider">
       <div className="slidesOfSlider">
-        {props.data.map((item) => (
+        {data.map((item) => (
           <div className="slide" key={item.id}>
-            <img src={item.imageUrl} alt={item.name} />
+            <div>
+              <img src={item.imageUrl} alt={item.name} />
+            </div>
             <p>{item.name}</p>
             <p>
               {item.city} {item.country}
@@ -30,7 +32,7 @@ function Slider(props) {
     let sliderLineLeft = window.getComputedStyle(sliderLine).left;
     if (
       -Number(sliderLineLeft.slice(0, -2)) <
-      props.data.length * (slideMargin + slideWidth) - sliderWidth
+      data.length * (slideMargin + slideWidth) - sliderWidth
     ) {
       sliderLine.style.left = Number(sliderLineLeft.slice(0, -2)) - slideWidth - slideMargin + 'px';
     } else {
