@@ -62,11 +62,19 @@ h2 {
 
 .slide {
   width: 296px;
+  height: 435px;
   margin-left: 16px;
 }
 
-.slide > img {
+.slide > div {
   width: 296px;
+  height: 296px;
+  overflow: hidden;
+}
+
+.slide > div>img {
+  width: 296px;
+  height: 296px;
 }
 
 .slide > p {
