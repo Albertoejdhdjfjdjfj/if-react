@@ -9,8 +9,10 @@ import googlePlay from '../../assets/svg/google-play-badge.svg';
 import appStore from '../../assets/svg/App_Store.svg';
 import background from '../../assets/images/castelmezzano.jpg';
 
-const TopSection = () => {
-  const [city, setCity] = useState('');
+const TopSection = ({onChange}) => {
+  const handleDistChange=(e)=>{
+    onChange(e.target.value);
+  }
   return (
     <div>
       <div className="top_section" style={{ backgroundImage: `url(${background})` }}>
@@ -43,9 +45,7 @@ const TopSection = () => {
         <form>
           <input
             id="city_input"
-            onChange={(e) => {
-              setCity(e.target.value);
-            }}
+            onChange={handleDistChange}
             class="city_input"
             placeholder="NewYork"
             type="search"
@@ -64,8 +64,6 @@ const TopSection = () => {
           <img src={`${appStore}`} />
         </div>
       </div>
-
-      <HomesGuestloves city={city} />
     </div>
   );
 };
