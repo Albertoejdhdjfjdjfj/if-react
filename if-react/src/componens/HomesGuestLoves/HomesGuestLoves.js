@@ -3,8 +3,8 @@ import React from 'react';
 import './HomesGuestloves.css';
 import array from '../../assets/variables';
 
-function HomesGuestloves({ city }) {
-  const data = array.filter((el) => el.city.includes(city));
+function HomesGuestloves({ dist }) {
+  const data = array.filter((el) => (el.city.includes(dist)||el.city.includes(dist)));
   return (
     <div className="homesGuestloves">
       <h2>Homes guests loves</h2>
