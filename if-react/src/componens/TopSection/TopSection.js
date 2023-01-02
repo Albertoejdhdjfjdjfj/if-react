@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import HomesGuestloves from '../HomesGuestLoves/HomesGuestLoves';
 import './TopSection.css';
 import logo from '../../assets/svg/logo.svg';
@@ -10,8 +10,10 @@ import appStore from '../../assets/svg/App_Store.svg';
 import background from '../../assets/images/castelmezzano.jpg';
 
 const TopSection = ({ onChange }) => {
-  const handleDistChange = (e) => {
-    onChange(e.target.value);
+  const [text, setText] = useState('');
+
+  const handleDistChange = () => {
+    onChange(text);
   };
 
   return (
@@ -44,14 +46,21 @@ const TopSection = ({ onChange }) => {
         </div>
 
         <form>
-          <input id="city_input" onChange={handleDistChange} placeholder="NewYork" type="search" />
+          <input
+            id="city_input"
+            onChange={(e) => setText(e.target.value)}
+            placeholder="NewYork"
+            type="search"
+          />
           <div className="date_input">
             <div>Check-in</div>
             <div>-</div>
             <div>Check-out</div>
           </div>
           <div className="num_people_input">0 Adults — 0 Children — 0Room</div>
-          <div className="searchButton">Search</div>
+          <div className="searchButton" onClick={handleDistChange}>
+            Search
+          </div>
         </form>
 
         <div className="wrapper_apps">
