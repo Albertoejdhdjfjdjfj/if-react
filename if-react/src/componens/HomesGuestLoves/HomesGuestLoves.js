@@ -1,7 +1,7 @@
 import Slider from './Slider/Slider';
 import React from 'react';
 import { useEffect, useState } from 'react';
-import './HomesGuestloves.css';
+import './HomesGuestLoves.css'
 
 function HomesGuestloves({ dist }) {
   const [data, setData] = useState(false);

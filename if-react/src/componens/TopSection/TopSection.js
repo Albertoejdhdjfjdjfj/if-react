@@ -1,6 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import HomesGuestloves from '../HomesGuestLoves/HomesGuestLoves';
+import { useState } from 'react';
 import './TopSection.css';
 import logo from '../../assets/svg/logo.svg';
 import night from '../../assets/svg/Night.svg';
@@ -8,6 +7,8 @@ import account from '../../assets/svg/AccountCircle.svg';
 import googlePlay from '../../assets/svg/google-play-badge.svg';
 import appStore from '../../assets/svg/App_Store.svg';
 import background from '../../assets/images/castelmezzano.jpg';
+import  DayPicker  from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
 
 const TopSection = ({ onChange }) => {
   const [text, setText] = useState('');
@@ -53,7 +54,7 @@ const TopSection = ({ onChange }) => {
             type="search"
           />
           <div className="date_input">
-            <div>Check-in</div>
+            <div><DatePicker/></div>
             <div>-</div>
             <div>Check-out</div>
           </div>
