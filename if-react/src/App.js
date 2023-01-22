@@ -13,9 +13,9 @@ function App() {
   };
 
   return (
-    <div>
+  
      <DatePicker/>
-    </div>
+    
   );
 }
 
