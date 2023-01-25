@@ -1,28 +1,29 @@
 import React from 'react';
+import './Footer.css';
 
 const Footer = () => {
   return (
-    <div>
+    <div className='footer'>
       <div>
         <h3>About</h3>
-        <p>How Triphouse works</p>
-        <p>Careers</p>
-        <p>Privacy</p>
-        <p>Terms</p>
+        <a>How Triphouse works</a>
+        <a>Careers</a>
+        <a>Privacy</a>
+        <a>Terms</a>
       </div>
       <div>
         <h3>Property types</h3>
-        <p>Guest houses</p>
-        <p>Hotels</p>
-        <p>Apartments</p>
-        <p>Villas</p>
-        <p>Holiday homes</p>
-        <p>Hostels</p>
+        <a>Guest houses</a>
+        <a>Hotels</a>
+        <a>Apartments</a>
+        <a>Villas</a>
+        <a>Holiday homes</a>
+        <a>Hostels</a>
       </div>
       <div>
         <h3>Support</h3>
-        <p>Contact Customer Service</p>
-        <p>FAQ</p>
+        <a>Contact Customer Service</a>
+        <a>FAQ</a>
       </div>
     </div>
   );

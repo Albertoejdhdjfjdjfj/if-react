@@ -2,6 +2,8 @@ import TopSection from './componens/TopSection/TopSection';
 import HomesGuestloves from './componens/HomesGuestLoves/HomesGuestLoves';
 import React from 'react';
 import { useState } from 'react';
+import Footer from './componens/Footer/Footer';
+
 function App() {
   const [dist, setDist] = useState('');
 
@@ -13,6 +15,7 @@ function App() {
     <div>
       <TopSection onChange={handleDistChange} />
       <HomesGuestloves dist={dist} />
+      <Footer/>
     </div>
   );
 }

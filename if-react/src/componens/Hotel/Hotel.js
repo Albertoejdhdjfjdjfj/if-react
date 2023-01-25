@@ -1,39 +1,18 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,useParams,useEffect } from 'react';
 import './TopSection.css';
 import logo from '../../assets/svg/logo.svg';
 import night from '../../assets/svg/Night.svg';
 import account from '../../assets/svg/AccountCircle.svg';
-import googlePlay from '../../assets/svg/google-play-badge.svg';
-import appStore from '../../assets/svg/App_Store.svg';
 import background from '../../assets/images/castelmezzano.jpg';
-import Calendar from './Calendar/Calendar';
-import Filter from './Filter/Filter';
 
-const TopSection = ({ onChange }) => {
-  const [text, setText] = useState('');
-  const [filterDisplay, setFilterDisplay] = useState(true);
-  const [filterData, setFilterData] = useState({
-    adults: 0,
-    children: 0,
-    rooms: 0
-  });
+const Hotel = ({ onChange }) => {
+const id=useParams();
+useEffect(() => {
+   
+}, []);
 
-  const handleFilterDataChange = (data) => {
-    setFilterData(data);
-  };
-
-  const handleDistChange = () => {
-    onChange(text);
-  };
-
-  const handleFilterDisplay = () => {
-    setFilterDisplay(!filterDisplay);
-    let filter = document.getElementById('filterBody');
-    filterDisplay ? (filter.style.display = 'flex') : (filter.style.display = 'none');
-  };
-
-  return (
+ return (
     <div>
       <div className="top_section" style={{ backgroundImage: `url(${background})` }}>
         <header>
@@ -50,8 +29,11 @@ const TopSection = ({ onChange }) => {
           </nav>
         </header>
       </div>
+      <div className='hotelSection'>
+         <img src=''/>
+      </div>
     </div>
   );
 };
 
-export default TopSection;
+export default Hotel;
