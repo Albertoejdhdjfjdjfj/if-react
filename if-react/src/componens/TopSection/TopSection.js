@@ -1,6 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import HomesGuestloves from '../HomesGuestLoves/HomesGuestLoves';
+import { useState } from 'react';
 import './TopSection.css';
 import logo from '../../assets/svg/logo.svg';
 import night from '../../assets/svg/Night.svg';
