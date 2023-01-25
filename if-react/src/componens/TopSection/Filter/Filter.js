@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './Filter.css';
 
-const Filter = ({onChange}) => {
+const Filter = ({ onChange }) => {
   const [adults, setAdults] = useState(0);
   const [children, setChildren] = useState(0);
   const [rooms, setRooms] = useState(0);
 
-  const handleFilterChange=(data)=>{
+  const handleFilterChange = (data) => {
     onChange(data);
-  }
+  };
 
   const handleClickButtonMinusAdults = () => {
     adults - 1 < 0 ? setAdults(0) : setAdults(adults - 1);
@@ -19,11 +19,11 @@ const Filter = ({onChange}) => {
   };
 
   const handleClickButtonMinusChildren = () => {
-    children - 1 < 0 ? setChildren(0) : (setChildren(children - 1),deleteSelect());
+    children - 1 < 0 ? setChildren(0) : (setChildren(children - 1), deleteSelect());
   };
 
   const handleClickButtonPlusChildren = () => {
-    children + 1 > 10 ? setChildren(10) : (setChildren(children + 1),addSelect());
+    children + 1 > 10 ? setChildren(10) : (setChildren(children + 1), addSelect());
   };
 
   const handleClickButtonMinusRooms = () => {
@@ -34,17 +34,17 @@ const Filter = ({onChange}) => {
     rooms + 1 > 30 ? setRooms(30) : setRooms(rooms + 1);
   };
 
- useEffect(() => {
-  handleFilterChange({
-    adults:adults,
-    children:children,
-    rooms:rooms,
-  })
- }, [adults,rooms,children]);
+  useEffect(() => {
+    handleFilterChange({
+      adults: adults,
+      children: children,
+      rooms: rooms
+    });
+  }, [adults, rooms, children]);
 
   return (
-    <div className="filterBody" id='filterBody'>
-      <div className='wrapperOfFilter'>
+    <div className="filterBody" id="filterBody">
+      <div className="wrapperOfFilter">
         <div>
           <p>Adults</p>{' '}
           <div>
@@ -71,22 +71,19 @@ const Filter = ({onChange}) => {
         </div>
       </div>
 
-      <div className='selectsOfChildren' id={children>0?'flex':'none'}>
-       <p>What is the age of the child you’re travelling with?</p>
-        
-        <div id='selectBox'>
-          
-        </div>
+      <div className="selectsOfChildren" id={children > 0 ? 'flex' : 'none'}>
+        <p>What is the age of the child you’re travelling with?</p>
 
+        <div id="selectBox"></div>
       </div>
     </div>
   );
 };
 
-function addSelect(){
-     let selects = document.getElementById('selectBox');
-     let select=document.createElement('select');
-     select.innerHTML=` 
+function addSelect() {
+  let selects = document.getElementById('selectBox');
+  let select = document.createElement('select');
+  select.innerHTML = ` 
      <option selected>0 years old</option>
      <option>1 years old</option>
      <option>2 years old</option>
@@ -106,18 +103,18 @@ function addSelect(){
      <option>16 years old</option>
      <option>17 years old</option>
       `;
-     selects.appendChild(select);
-} 
-
-function deleteSelect(){
-     let selects = document.getElementById('selectBox');
-     selects.removeChild(selects.lastChild)  
+  selects.appendChild(select);
 }
 
-function deleteAllSelect(){
-     let selects = document.getElementById('selectBox');
-     while (selects.firstChild) {
-          selects.removeChild(selects.firstChild);
-     }
+function deleteSelect() {
+  let selects = document.getElementById('selectBox');
+  selects.removeChild(selects.lastChild);
+}
+
+function deleteAllSelect() {
+  let selects = document.getElementById('selectBox');
+  while (selects.firstChild) {
+    selects.removeChild(selects.firstChild);
+  }
 }
 export default Filter;

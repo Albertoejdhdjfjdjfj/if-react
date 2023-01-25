@@ -14,25 +14,25 @@ import Filter from './Filter/Filter';
 const TopSection = ({ onChange }) => {
   const [text, setText] = useState('');
   const [filterDisplay, setFilterDisplay] = useState(true);
-  const[filterData,setFilterData]=useState({
-    adults:0,
-    children:0,
-    rooms:0,
+  const [filterData, setFilterData] = useState({
+    adults: 0,
+    children: 0,
+    rooms: 0
   });
 
-  const handleFilterDataChange=(data)=>{
+  const handleFilterDataChange = (data) => {
     setFilterData(data);
-  }
+  };
 
   const handleDistChange = () => {
     onChange(text);
   };
 
-  const handleFilterDisplay=()=>{
+  const handleFilterDisplay = () => {
     setFilterDisplay(!filterDisplay);
-    let filter=document.getElementById('filterBody');
-    filterDisplay?filter.style.display='flex':filter.style.display='none';
-  }
+    let filter = document.getElementById('filterBody');
+    filterDisplay ? (filter.style.display = 'flex') : (filter.style.display = 'none');
+  };
 
   return (
     <div>
@@ -71,16 +71,14 @@ const TopSection = ({ onChange }) => {
             type="search"
           />
           <Calendar />
-          <div className="num_people_input"
-          onClick={handleFilterDisplay}>
+          <div className="num_people_input" onClick={handleFilterDisplay}>
             {filterData.adults} Adults — {filterData.children} Children — {filterData.rooms} Room
           </div>
           <div className="searchButton" onClick={handleDistChange}>
             Search
           </div>
         </form>
-        <Filter
-        onChange={handleFilterDataChange} />
+        <Filter onChange={handleFilterDataChange} />
         <div className="wrapper_apps">
           <img src={`${googlePlay}`} />
           <img src={`${appStore}`} />
