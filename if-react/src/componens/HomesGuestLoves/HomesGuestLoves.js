@@ -11,7 +11,7 @@ function HomesGuestloves({ dist }) {
     )
       .then((response) => response.json())
       .then((res) => setData(res));
-      console.log(data);
+    console.log(data);
   }, [dist]);
 
   if (data) {
