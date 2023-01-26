@@ -28,7 +28,7 @@
   background-size: cover;
 }
 
-header {
+.top_section > header {
   width: 86%;
   display: flex;
   justify-content: space-between;

@@ -40,8 +40,8 @@ const TopSection = ({ onChange }) => {
           <img src={`${logo}`} />
           <nav>
             <div className="word_interface">
-              <a>Stays</a>
-              <a>Attractions</a>
+              <p>Stays</p>
+              <p>Attractions</p>
             </div>
             <div className="svg_interface">
               <img src={`${night}`} />
