@@ -1,12 +1,15 @@
 import arrowLeft from '../../../assets/images/arrow.png';
 import React from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function Slider({ data }) {
+  const navigate = useNavigate();
+
   return (
     <div className="slider">
       <div className="slidesOfSlider">
         {data.map((item) => (
-          <div className="slide" key={item.id}>
+          <div className="slide" key={item.id} onClick={() => navigate(`/hotels/${item.id}`)}>
             <div>
               <img src={item.imageUrl} alt={item.name} />
             </div>

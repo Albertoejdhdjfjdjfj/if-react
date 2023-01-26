@@ -3,7 +3,7 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <div className='footer'>
+    <div className="footer">
       <div>
         <h3>About</h3>
         <a>How Triphouse works</a>

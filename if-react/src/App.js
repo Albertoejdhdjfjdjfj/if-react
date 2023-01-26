@@ -15,7 +15,7 @@ function App() {
     <div>
       <TopSection onChange={handleDistChange} />
       <HomesGuestloves dist={dist} />
-      <Footer/>
+      <Footer />
     </div>
   );
 }
