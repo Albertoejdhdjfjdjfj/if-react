@@ -13,13 +13,9 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   async function requestCheckUser() {
-    let user = await fetch(`http://localhost:3001/users?email=${email}&&password=${password}`).then(
-      (data) => data.json()
-    );
-
-    if (user[0].id) {
-      localStorage.setItem('signIn', true);
-    }
+    await fetch(`http://localhost:3001/users?email=${email}&&password=${password}`)
+      .then((data) => data.json())
+      .then(user=>user[0].id ? (localStorage.setItem('signIn', true), navigate('/')) : '');
   }
 
   return (
