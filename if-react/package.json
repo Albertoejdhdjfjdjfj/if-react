@@ -21,7 +21,8 @@
     "lint": "eslint src/**/*.js",
     "prettier": "prettier --write src/**/*{js,css}",
     "lint:write": "eslint --debug src/**/*.js --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "server":"json-server -w server/db.json -p 3001"
   },
   "eslintConfig": {
     "extends": [

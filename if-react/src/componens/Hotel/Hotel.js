@@ -15,7 +15,6 @@ const Hotel = () => {
     fetch(`https://if-student-api.onrender.com/api/hotels/${id}`)
       .then((response) => response.json())
       .then((json) => setData(json));
-    console.log(data);
   }, []);
 
   if (data) {

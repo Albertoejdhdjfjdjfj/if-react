@@ -1,22 +1,19 @@
-import TopSection from './componens/TopSection/TopSection';
-import HomesGuestloves from './componens/HomesGuestLoves/HomesGuestLoves';
-import React from 'react';
-import { useState } from 'react';
-import Footer from './componens/Footer/Footer';
+import { React } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import SignIn from './componens/SignIn/SignIn';
+import Hotel from './componens/Hotel/Hotel';
+import HederPage from './componens/HederPage/HederPage';
 
 function App() {
-  const [dist, setDist] = useState('');
-
-  const handleDistChange = (location) => {
-    setDist(location);
-  };
-
   return (
-    <div>
-      <TopSection onChange={handleDistChange} />
-      <HomesGuestloves dist={dist} />
-      <Footer />
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={localStorage.getItem('signIn') ? <HederPage /> : <Navigate to="/signIn" />}
+      />
+      <Route path="/signIn" element={<SignIn />} />
+      <Route path="/hotels/:id" element={<Hotel />} />
+    </Routes>
   );
 }
 
