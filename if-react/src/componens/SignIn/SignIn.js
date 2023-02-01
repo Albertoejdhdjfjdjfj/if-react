@@ -9,14 +9,9 @@ import account from '../../assets/svg/AccountCircle.svg';
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const[error,setError]=useState('')
 
   const navigate = useNavigate();
-
-  async function requestCheckUser() {
-    await fetch(`http://localhost:3001/users?email=${email}&&password=${password}`)
-      .then((data) => data.json())
-      .then(user=>user[0].id ? (localStorage.setItem('signIn', true), navigate('/')) : '');
-  }
 
   return (
     <div className="top_section" style={{ backgroundImage: `url(${background})` }}>
@@ -47,10 +42,28 @@ const SignIn = () => {
           <p>Password</p>
           <input type="password" onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <button onClick={requestCheckUser}>Sing in</button>
+        <p>{error}</p>
+        <button onClick={logIn}>Sing in</button>
       </div>
     </div>
   );
+
+
+  function logIn() {
+    let el;
+    fetch(`http://localhost:3001/users?email=${email}&password=${password}`)
+      .then((response) => response.json())
+      .then((response) => ([el] = response))
+      .then(() =>
+        el
+          ? localStorage.setItem(
+              'signIn',
+              true
+            )
+          : setError('Invalid email or password')
+      )
+      .then(() => (localStorage.getItem('signIn') ? navigate('/') : ''));
+  }
 };
 
 export default SignIn;
