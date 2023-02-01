@@ -9,10 +9,12 @@ import appStore from '../../assets/svg/App_Store.svg';
 import background from '../../assets/images/castelmezzano.jpg';
 import Calendar from './Calendar/Calendar';
 import Filter from './Filter/Filter';
+import SignOut from './SignOut/SignOut';
 
 const TopSection = ({ onChange }) => {
   const [text, setText] = useState('');
   const [filterDisplay, setFilterDisplay] = useState(true);
+  const [popUpButtonSignOutDisplay, setPopUpButtonSignOutDisplay] = useState('false');
   const [filterData, setFilterData] = useState({
     adults: 0,
     children: 0,
@@ -33,6 +35,16 @@ const TopSection = ({ onChange }) => {
     filterDisplay ? (filter.style.display = 'flex') : (filter.style.display = 'none');
   };
 
+  const handlePopUpButtonSignOutDisplay = (e) => {
+    popUpButtonSignOutDisplay
+      ? (e.target.style.filter =
+          'brightness(0) saturate(100%) invert(88%) sepia(82%) saturate(6390%) hue-rotate(322deg) brightness(100%) contrast(92%)')
+      : (e.target.style.filter = 'none');
+    setPopUpButtonSignOutDisplay(!popUpButtonSignOutDisplay);
+    let button = document.getElementById('signOut');
+    popUpButtonSignOutDisplay ? (button.style.display = 'flex') : (button.style.display = 'none');
+  };
+
   return (
     <div>
       <div className="top_section" style={{ backgroundImage: `url(${background})` }}>
@@ -45,10 +57,12 @@ const TopSection = ({ onChange }) => {
             </div>
             <div className="svg_interface">
               <img src={`${night}`} />
-              <img src={`${account}`} />
+              <img src={`${account}`} onClick={handlePopUpButtonSignOutDisplay} />
             </div>
           </nav>
         </header>
+
+        <SignOut />
 
         <h1>
           Discover stays

@@ -1,0 +1,31 @@
+@import url('../../../assets/fonts/fonts.css');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.signOut {
+  position: absolute;
+  z-index: 2;
+  width: 192px;
+  height: 50px;
+  display: none;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  margin-left: 69%;
+  margin-top: 121px;
+}
+
+.signOut > img {
+  margin-left: 16px;
+}
+
+.signOut p {
+  margin-left: 16px;
+  font-size: 20px;
+}

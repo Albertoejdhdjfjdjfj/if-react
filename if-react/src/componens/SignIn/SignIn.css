@@ -1,0 +1,65 @@
+@import url('../../assets/fonts/fonts.css');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+  text-decoration: none;
+  font-weight: 400;
+}
+
+:root {
+  --white: #ffffff;
+  --bg-col-of-section: #eaf0f9;
+  --font-col-blue: #3077c6;
+  --font-col-dark-gray: #383838;
+  --font-col-light-gray: #bfbfbf;
+  --font-size-H2: 40px;
+  --radius: 8px;
+}
+
+.sign_form {
+  margin-top: 183px;
+  background-color: #ffffff;
+  width: 400px;
+  height: 364px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36px 40px 36px 40px;
+}
+
+.sign_form > h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: black;
+}
+
+.sign_form > div > p {
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 300;
+  color: #383838;
+}
+
+.sign_form > div > input {
+  margin-top: 8px;
+  width: 320px;
+  height: 41px;
+  border-radius: var(--radius);
+  border: 2px solid #cecece;
+  font-size: 24px;
+}
+
+.sign_form > button {
+  width: 320px;
+  height: 48px;
+  border-radius: var(--radius);
+  background-color: var(--font-col-blue);
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 500;
+  border: none;
+}
