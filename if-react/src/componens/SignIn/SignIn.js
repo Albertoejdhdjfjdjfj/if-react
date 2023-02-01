@@ -9,7 +9,7 @@ import account from '../../assets/svg/AccountCircle.svg';
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const[error,setError]=useState('')
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
 
@@ -48,19 +48,13 @@ const SignIn = () => {
     </div>
   );
 
-
   function logIn() {
     let el;
     fetch(`http://localhost:3001/users?email=${email}&password=${password}`)
       .then((response) => response.json())
       .then((response) => ([el] = response))
       .then(() =>
-        el
-          ? localStorage.setItem(
-              'signIn',
-              true
-            )
-          : setError('Invalid email or password')
+        el ? localStorage.setItem('signIn', true) : setError('Invalid email or password')
       )
       .then(() => (localStorage.getItem('signIn') ? navigate('/') : ''));
   }
