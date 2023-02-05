@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeDistination } from '../../redux/actions/actions';
 import './TopSection.css';
 import logo from '../../assets/svg/logo.svg';
 import night from '../../assets/svg/Night.svg';
@@ -11,23 +13,13 @@ import Calendar from './Calendar/Calendar';
 import Filter from './Filter/Filter';
 import SignOut from './SignOut/SignOut';
 
-const TopSection = ({ onChange }) => {
+const TopSection = () => {
   const [text, setText] = useState('');
   const [filterDisplay, setFilterDisplay] = useState(true);
   const [popUpButtonSignOutDisplay, setPopUpButtonSignOutDisplay] = useState('false');
-  const [filterData, setFilterData] = useState({
-    adults: 0,
-    children: 0,
-    rooms: 0
-  });
 
-  const handleFilterDataChange = (data) => {
-    setFilterData(data);
-  };
-
-  const handleDistChange = () => {
-    onChange(text);
-  };
+  const filterData = useSelector((state) => state.filter);
+  const dispatch = useDispatch();
 
   const handleFilterDisplay = () => {
     setFilterDisplay(!filterDisplay);
@@ -87,11 +79,11 @@ const TopSection = ({ onChange }) => {
           <div className="num_people_input" onClick={handleFilterDisplay}>
             {filterData.adults} Adults — {filterData.children} Children — {filterData.rooms} Room
           </div>
-          <div className="searchButton" onClick={handleDistChange}>
+          <div className="searchButton" onClick={() => dispatch(changeDistination(text))}>
             Search
           </div>
         </form>
-        <Filter onChange={handleFilterDataChange} />
+        <Filter />
         <div className="wrapper_apps">
           <img src={`${googlePlay}`} />
           <img src={`${appStore}`} />

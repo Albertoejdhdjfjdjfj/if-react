@@ -1,28 +1,32 @@
 import arrowLeft from '../../../assets/images/arrow.png';
+import { useSelector } from 'react-redux';
 import React from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function Slider({ data }) {
+function Slider() {
   const navigate = useNavigate();
+  const data = useSelector((state) => state.sliderData);
 
-  return (
-    <div className="slider">
-      <div className="slidesOfSlider">
-        {data.map((item) => (
-          <div className="slide" key={item.id} onClick={() => navigate(`/hotels/${item.id}`)}>
-            <div>
-              <img src={item.imageUrl} alt={item.name} />
+  if (data) {
+    return (
+      <div className="slider">
+        <div className="slidesOfSlider">
+          {data.map((item) => (
+            <div className="slide" key={item.id} onClick={() => navigate(`/hotels/${item.id}`)}>
+              <div>
+                <img src={item.imageUrl} alt={item.name} />
+              </div>
+              <p>{item.name}</p>
+              <p>
+                {item.city} {item.country}
+              </p>
             </div>
-            <p>{item.name}</p>
-            <p>
-              {item.city} {item.country}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
+        <img src={arrowLeft} onClick={SlideImages} alt="" />
       </div>
-      <img src={arrowLeft} onClick={SlideImages} alt="" />
-    </div>
-  );
+    );
+  }
 
   function SlideImages() {
     let sliderLine = document.querySelector('.slidesOfSlider');

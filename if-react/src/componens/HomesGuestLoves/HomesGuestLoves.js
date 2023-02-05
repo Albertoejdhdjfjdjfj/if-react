@@ -1,27 +1,29 @@
 import Slider from './Slider/Slider';
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { changeData } from '../../redux/actions/actions';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import './HomesGuestLoves.css';
 
-function HomesGuestloves({ dist }) {
-  const [data, setData] = useState(false);
+function HomesGuestloves() {
+  const dist = useSelector((state) => state.dist);
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
     fetch(
       `https://if-student-api.onrender.com/api/hotels${dist == '' ? '/popular' : `?search=${dist}`}`
     )
       .then((response) => response.json())
-      .then((res) => setData(res));
-    console.log(data);
+      .then((res) => dispatch(changeData(res)));
   }, [dist]);
 
-  if (data) {
-    return (
-      <div className="homesGuestloves">
-        <h2>Homes guests loves</h2>
-        <Slider data={data} />
-      </div>
-    );
-  }
+  return (
+    <div className="homesGuestloves">
+      <h2>Homes guests loves</h2>
+      <Slider />
+    </div>
+  );
 }
 
 export default HomesGuestloves;
