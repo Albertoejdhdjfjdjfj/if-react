@@ -1,51 +1,93 @@
 import { useSelector, useDispatch } from 'react-redux';
-import React, { useEffect } from 'react';
-import { changeFilter } from '../../../../redux/actions/actions';
+import React from 'react';
+import { changeFilter } from '../../../redux/actions/actions';
 import './Filter.css';
 
 const Filter = () => {
-  const adults = useSelector((state) => state.filter.adults);
-  const children = useSelector((state) => state.filter.children);
-  const rooms = useSelector((state) => state.filter.rooms);
+  const filterData = useSelector((state) => state.filter);
 
   const dispatch = useDispatch();
 
   const handleClickButtonMinusAdults = () => {
-    adults - 1 < 0
-      ? dispatch(changeFilter({ adults: 0, children: children, rooms: rooms }))
-      : dispatch(changeFilter({ adults: adults - 1, children: children, rooms: rooms }));
+    filterData.adults - 1 < 0
+      ? dispatch(
+          changeFilter({ adults: 0, children: filterData.children, rooms: filterData.rooms })
+        )
+      : dispatch(
+          changeFilter({
+            adults: filterData.adults - 1,
+            children: filterData.children,
+            rooms: filterData.rooms
+          })
+        );
   };
 
   const handleClickButtonPlusAdults = () => {
-    adults + 1 > 30
-      ? dispatch(changeFilter({ adults: 30, children: children, rooms: rooms }))
-      : dispatch(changeFilter({ adults: adults + 1, children: children, rooms: rooms }));
+    filterData.adults + 1 > 30
+      ? dispatch(
+          changeFilter({ adults: 30, children: filterData.children, rooms: filterData.rooms })
+        )
+      : dispatch(
+          changeFilter({
+            adults: filterData.adults + 1,
+            children: filterData.children,
+            rooms: filterData.rooms
+          })
+        );
   };
 
   const handleClickButtonMinusChildren = () => {
-    children - 1 < 0
-      ? dispatch(changeFilter({ adults: adults, children: 0, rooms: rooms }))
-      : (dispatch(changeFilter({ adults: adults, children: children - 1, rooms: rooms })),
+    filterData.children - 1 < 0
+      ? dispatch(changeFilter({ adults: filterData.adults, children: 0, rooms: filterData.rooms }))
+      : (dispatch(
+          changeFilter({
+            adults: filterData.adults,
+            children: filterData.children - 1,
+            rooms: filterData.rooms
+          })
+        ),
         deleteSelect());
   };
 
   const handleClickButtonPlusChildren = () => {
-    children + 1 > 10
-      ? dispatch(changeFilter({ adults: adults, children: 10, rooms: rooms }))
-      : (dispatch(changeFilter({ adults: adults, children: children + 1, rooms: rooms })),
+    filterData.children + 1 > 10
+      ? dispatch(changeFilter({ adults: filterData.adults, children: 10, rooms: filterData.rooms }))
+      : (dispatch(
+          changeFilter({
+            adults: filterData.adults,
+            children: filterData.children + 1,
+            rooms: filterData.rooms
+          })
+        ),
         addSelect());
   };
 
   const handleClickButtonMinusRooms = () => {
-    rooms - 1 < 0
-      ? dispatch(changeFilter({ adults: adults, children: children, rooms: 0 }))
-      : dispatch(changeFilter({ adults: adults, children: children, rooms: rooms - 1 }));
+    filterData.rooms - 1 < 0
+      ? dispatch(
+          changeFilter({ adults: filterData.adults, children: filterData.children, rooms: 0 })
+        )
+      : dispatch(
+          changeFilter({
+            adults: filterData.adults,
+            children: filterData.children,
+            rooms: filterData.rooms - 1
+          })
+        );
   };
 
   const handleClickButtonPlusRooms = () => {
-    rooms + 1 > 30
-      ? dispatch(changeFilter({ adults: adults, children: children, rooms: 30 }))
-      : dispatch(changeFilter({ adults: adults, children: children, rooms: rooms + 1 }));
+    filterData.rooms + 1 > 30
+      ? dispatch(
+          changeFilter({ adults: filterData.adults, children: filterData.children, rooms: 30 })
+        )
+      : dispatch(
+          changeFilter({
+            adults: filterData.adults,
+            children: filterData.children,
+            rooms: filterData.rooms + 1
+          })
+        );
   };
 
   return (
@@ -55,7 +97,7 @@ const Filter = () => {
           <p>Adults</p>{' '}
           <div>
             <button onClick={handleClickButtonMinusAdults}>-</button>
-            <p>{adults}</p>
+            <p>{filterData.adults}</p>
             <button onClick={handleClickButtonPlusAdults}>+</button>
           </div>
         </div>
@@ -63,7 +105,7 @@ const Filter = () => {
           <p>Children</p>{' '}
           <div>
             <button onClick={handleClickButtonMinusChildren}>-</button>
-            <p>{children}</p>
+            <p>{filterData.children}</p>
             <button onClick={handleClickButtonPlusChildren}>+</button>
           </div>
         </div>
@@ -71,13 +113,13 @@ const Filter = () => {
           <p>Rooms</p>{' '}
           <div>
             <button onClick={handleClickButtonMinusRooms}>-</button>
-            <p>{rooms}</p>
+            <p>{filterData.rooms}</p>
             <button onClick={handleClickButtonPlusRooms}>+</button>
           </div>
         </div>
       </div>
 
-      <div className="selectsOfChildren" id={children > 0 ? 'flex' : 'none'}>
+      <div className="selectsOfChildren" id={filterData.children > 0 ? 'flex' : 'none'}>
         <p>What is the age of the child you’re travelling with?</p>
 
         <div id="selectBox"></div>
