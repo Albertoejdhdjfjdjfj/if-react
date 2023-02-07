@@ -1,27 +1,38 @@
-import { CHANGE_FILTER, CHANGE_DISTINATION, CHANGE_SLIDER_DATA } from '../actions/actionsTypes';
+import {
+  CHANGE_FILTER_ADULTS,
+  CHANGE_FILTER_ROOMS,
+  CHANGE_FILTER_CHILDREN,
+  CHANGE_DISTINATION,
+  CHANGE_SLIDER_DATA,
+} from '../actions/actionsTypes';
 
 const initialState = {
   dist: '',
-  filter: {
-    adults: 0,
-    children: 0,
-    rooms: 0
-  },
+  adults: 0,
+  children: 0,
+  rooms: 0,
   sliderData: false
 };
 
 function Reducer(state = initialState, action) {
   switch (action.type) {
-    case CHANGE_FILTER:
+    case CHANGE_FILTER_ADULTS:
       return {
         ...state,
-        filter: {
-          adults: action.payload.adults,
-          children: action.payload.children,
-          rooms: action.payload.rooms
-        }
+        adults: action.payload
       };
 
+    case CHANGE_FILTER_ROOMS:
+      return {
+        ...state,
+        rooms: action.payload
+      };
+
+    case CHANGE_FILTER_CHILDREN:
+      return {
+        ...state,
+        children: action.payload
+      };
     case CHANGE_DISTINATION:
       return {
         ...state,
