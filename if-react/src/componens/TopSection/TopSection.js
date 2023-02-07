@@ -17,8 +17,9 @@ const TopSection = () => {
   const [text, setText] = useState('');
   const [filterDisplay, setFilterDisplay] = useState(true);
   const [popUpButtonSignOutDisplay, setPopUpButtonSignOutDisplay] = useState('false');
-
-  const filterData = useSelector((state) => state.filter);
+  const adults = useSelector((state) => state.adults);
+  const rooms = useSelector((state) => state.rooms);
+  const children = useSelector((state) => state.children);
   const dispatch = useDispatch();
 
   const handleFilterDisplay = () => {
@@ -77,7 +78,7 @@ const TopSection = () => {
           />
           <Calendar />
           <div className="num_people_input" onClick={handleFilterDisplay}>
-            {filterData.adults} Adults — {filterData.children} Children — {filterData.rooms} Room
+            {adults} Adults — {children} Children — {rooms} Room
           </div>
           <div className="searchButton" onClick={() => dispatch(changeDistination(text))}>
             Search

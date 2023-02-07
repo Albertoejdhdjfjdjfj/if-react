@@ -1,93 +1,45 @@
 import { useSelector, useDispatch } from 'react-redux';
 import React from 'react';
-import { changeFilter } from '../../../redux/actions/actions';
+import {
+  changeFilterAdults,
+  changeFilterRooms,
+  changeFilterChildren
+} from '../../../redux/actions/actions';
 import './Filter.css';
 
 const Filter = () => {
-  const filterData = useSelector((state) => state.filter);
+  const adults = useSelector((state) => state.adults);
+  const rooms = useSelector((state) => state.rooms);
+  const children = useSelector((state) => state.children);
 
   const dispatch = useDispatch();
 
   const handleClickButtonMinusAdults = () => {
-    filterData.adults - 1 < 0
-      ? dispatch(
-          changeFilter({ adults: 0, children: filterData.children, rooms: filterData.rooms })
-        )
-      : dispatch(
-          changeFilter({
-            adults: filterData.adults - 1,
-            children: filterData.children,
-            rooms: filterData.rooms
-          })
-        );
+    adults - 1 < 0 ? dispatch(changeFilterAdults(0)) : dispatch(changeFilterAdults(adults - 1));
   };
 
   const handleClickButtonPlusAdults = () => {
-    filterData.adults + 1 > 30
-      ? dispatch(
-          changeFilter({ adults: 30, children: filterData.children, rooms: filterData.rooms })
-        )
-      : dispatch(
-          changeFilter({
-            adults: filterData.adults + 1,
-            children: filterData.children,
-            rooms: filterData.rooms
-          })
-        );
+    adults + 1 > 30 ? dispatch(changeFilterAdults(30)) : dispatch(changeFilterAdults(adults + 1));
   };
 
   const handleClickButtonMinusChildren = () => {
-    filterData.children - 1 < 0
-      ? dispatch(changeFilter({ adults: filterData.adults, children: 0, rooms: filterData.rooms }))
-      : (dispatch(
-          changeFilter({
-            adults: filterData.adults,
-            children: filterData.children - 1,
-            rooms: filterData.rooms
-          })
-        ),
-        deleteSelect());
+    children - 1 < 0
+      ? dispatch(changeFilterChildren(0))
+      : (dispatch(changeFilterChildren(children - 1)), deleteSelect());
   };
 
   const handleClickButtonPlusChildren = () => {
-    filterData.children + 1 > 10
-      ? dispatch(changeFilter({ adults: filterData.adults, children: 10, rooms: filterData.rooms }))
-      : (dispatch(
-          changeFilter({
-            adults: filterData.adults,
-            children: filterData.children + 1,
-            rooms: filterData.rooms
-          })
-        ),
-        addSelect());
+    children + 1 > 10
+      ? dispatch(changeFilterChildren(10))
+      : (dispatch(changeFilterChildren(children + 1)), addSelect());
   };
 
   const handleClickButtonMinusRooms = () => {
-    filterData.rooms - 1 < 0
-      ? dispatch(
-          changeFilter({ adults: filterData.adults, children: filterData.children, rooms: 0 })
-        )
-      : dispatch(
-          changeFilter({
-            adults: filterData.adults,
-            children: filterData.children,
-            rooms: filterData.rooms - 1
-          })
-        );
+    rooms - 1 < 0 ? dispatch(changeFilterRooms(0)) : dispatch(changeFilterRooms(rooms - 1));
   };
 
   const handleClickButtonPlusRooms = () => {
-    filterData.rooms + 1 > 30
-      ? dispatch(
-          changeFilter({ adults: filterData.adults, children: filterData.children, rooms: 30 })
-        )
-      : dispatch(
-          changeFilter({
-            adults: filterData.adults,
-            children: filterData.children,
-            rooms: filterData.rooms + 1
-          })
-        );
+    rooms + 1 > 30 ? dispatch(changeFilterRooms(30)) : dispatch(changeFilterRooms(rooms + 1));
   };
 
   return (
@@ -97,7 +49,7 @@ const Filter = () => {
           <p>Adults</p>{' '}
           <div>
             <button onClick={handleClickButtonMinusAdults}>-</button>
-            <p>{filterData.adults}</p>
+            <p>{adults}</p>
             <button onClick={handleClickButtonPlusAdults}>+</button>
           </div>
         </div>
@@ -105,7 +57,7 @@ const Filter = () => {
           <p>Children</p>{' '}
           <div>
             <button onClick={handleClickButtonMinusChildren}>-</button>
-            <p>{filterData.children}</p>
+            <p>{children}</p>
             <button onClick={handleClickButtonPlusChildren}>+</button>
           </div>
         </div>
@@ -113,13 +65,13 @@ const Filter = () => {
           <p>Rooms</p>{' '}
           <div>
             <button onClick={handleClickButtonMinusRooms}>-</button>
-            <p>{filterData.rooms}</p>
+            <p>{rooms}</p>
             <button onClick={handleClickButtonPlusRooms}>+</button>
           </div>
         </div>
       </div>
 
-      <div className="selectsOfChildren" id={filterData.children > 0 ? 'flex' : 'none'}>
+      <div className="selectsOfChildren" id={children > 0 ? 'flex' : 'none'}>
         <p>What is the age of the child you’re travelling with?</p>
 
         <div id="selectBox"></div>

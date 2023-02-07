@@ -1,26 +1,18 @@
-import { CHANGE_FILTER, CHANGE_DISTINATION, CHANGE_SLIDER_DATA } from './actionsTypes';
+import {
+  CHANGE_FILTER_ADULTS,
+  CHANGE_FILTER_ROOMS,
+  CHANGE_FILTER_CHILDREN,
+  CHANGE_DISTINATION,
+  CHANGE_SLIDER_DATA
+} from './actionsTypes';
+import { createAction } from 'redux-actions';
 
-export function changeFilter(obj) {
-  return {
-    type: CHANGE_FILTER,
-    payload: {
-      adults: obj.adults,
-      children: obj.children,
-      rooms: obj.rooms
-    }
-  };
-}
+export const changeFilterAdults = createAction(CHANGE_FILTER_ADULTS);
 
-export function changeDistination(text) {
-  return {
-    type: CHANGE_DISTINATION,
-    payload: text
-  };
-}
+export const changeFilterRooms = createAction(CHANGE_FILTER_ROOMS);
 
-export function changeData(array) {
-  return {
-    type: CHANGE_SLIDER_DATA,
-    payload: array
-  };
-}
+export const changeFilterChildren = createAction(CHANGE_FILTER_CHILDREN);
+
+export const changeDistination = createAction(CHANGE_DISTINATION);
+
+export const changeData = createAction(CHANGE_SLIDER_DATA);
