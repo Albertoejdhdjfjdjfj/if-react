@@ -3,7 +3,7 @@ import {
   CHANGE_FILTER_ROOMS,
   CHANGE_FILTER_CHILDREN,
   CHANGE_DISTINATION,
-  CHANGE_SLIDER_DATA,
+  CHANGE_SLIDER_DATA
 } from '../actions/actionsTypes';
 
 const initialState = {
