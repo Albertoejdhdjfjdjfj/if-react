@@ -1,16 +1,21 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore,applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga'
+import { watchRequestHotels } from './redux/middleware/saga';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 import Reducer from './redux/reducers/reducer';
 
+const sagaMiddleware=createSagaMiddleware();
 const store = createStore(
-  Reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  Reducer,applyMiddleware(sagaMiddleware)
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+
+sagaMiddleware.run(watchRequestHotels);
 
 root.render(
   <Provider store={store}>

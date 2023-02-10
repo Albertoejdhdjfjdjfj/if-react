@@ -3,7 +3,9 @@ import {
   CHANGE_FILTER_ROOMS,
   CHANGE_FILTER_CHILDREN,
   CHANGE_DISTINATION,
-  CHANGE_SLIDER_DATA
+  REQUEST_HOTELS,
+  REQUEST_HOTELS_ERROR,
+  REQUEST_HOTELS_SUCCESS
 } from '../actions/actionsTypes';
 
 const initialState = {
@@ -11,6 +13,10 @@ const initialState = {
   adults: 0,
   children: 0,
   rooms: 0,
+  dateFrom: new Date.getTime(),
+  dateTo: new Date.getTime(),
+  loading: false,
+  error: false,
   sliderData: false
 };
 
@@ -33,16 +39,33 @@ function Reducer(state = initialState, action) {
         ...state,
         children: action.payload
       };
+      
     case CHANGE_DISTINATION:
       return {
         ...state,
         dist: action.payload
       };
 
-    case CHANGE_SLIDER_DATA:
+    case REQUEST_HOTELS:
       return {
         ...state,
+        loading: true,
+        error: false
+      };
+
+    case REQUEST_HOTELS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: false,
         sliderData: action.payload
+      };
+
+    case REQUEST_HOTELS_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: true
       };
 
     default:

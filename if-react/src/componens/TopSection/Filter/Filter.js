@@ -16,6 +16,7 @@ const Filter = () => {
 
   const handleClickButtonMinusAdults = () => {
     adults - 1 < 0 ? dispatch(changeFilterAdults(0)) : dispatch(changeFilterAdults(adults - 1));
+    adults - 1 === 0 ? (dispatch(changeFilterChildren(0)), deleteAllSelects()) : '';
   };
 
   const handleClickButtonPlusAdults = () => {
@@ -29,7 +30,9 @@ const Filter = () => {
   };
 
   const handleClickButtonPlusChildren = () => {
-    children + 1 > 10
+    adults === 0
+      ? ''
+      : children + 1 > 10
       ? dispatch(changeFilterChildren(10))
       : (dispatch(changeFilterChildren(children + 1)), addSelect());
   };
@@ -109,6 +112,11 @@ function addSelect() {
 function deleteSelect() {
   let selects = document.getElementById('selectBox');
   selects.removeChild(selects.lastChild);
+}
+
+function deleteAllSelects() {
+  let selects = document.getElementById('selectBox');
+  selects.innerHTML = '';
 }
 
 export default Filter;

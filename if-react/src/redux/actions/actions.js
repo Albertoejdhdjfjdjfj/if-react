@@ -3,7 +3,12 @@ import {
   CHANGE_FILTER_ROOMS,
   CHANGE_FILTER_CHILDREN,
   CHANGE_DISTINATION,
-  CHANGE_SLIDER_DATA
+  REQUEST_HOTELS,
+  REQUEST_HOTELS_ERROR,
+  REQUEST_HOTELS_SUCCESS,
+  FETCH_HOTELS,
+  CHANGE_DATE_FROM,
+  CHANGE_DATE_TO
 } from './actionsTypes';
 import { createAction } from 'redux-actions';
 
@@ -15,4 +20,15 @@ export const changeFilterChildren = createAction(CHANGE_FILTER_CHILDREN);
 
 export const changeDistination = createAction(CHANGE_DISTINATION);
 
-export const changeData = createAction(CHANGE_SLIDER_DATA);
+export const changeDateFrom = createAction(CHANGE_DATE_FROM);
+
+export const changeDateTo = createAction(CHANGE_DATE_TO);
+
+
+export const requestHotels = createAction(REQUEST_HOTELS);
+
+export const requestHotelsError = createAction(REQUEST_HOTELS_ERROR);
+
+export const requestHotelsSuccess = createAction(REQUEST_HOTELS_SUCCESS);
+
+export const fetchHotels = createAction(FETCH_HOTELS);
