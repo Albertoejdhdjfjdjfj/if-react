@@ -24,7 +24,6 @@ export const changeDateFrom = createAction(CHANGE_DATE_FROM);
 
 export const changeDateTo = createAction(CHANGE_DATE_TO);
 
-
 export const requestHotels = createAction(REQUEST_HOTELS);
 
 export const requestHotelsError = createAction(REQUEST_HOTELS_ERROR);

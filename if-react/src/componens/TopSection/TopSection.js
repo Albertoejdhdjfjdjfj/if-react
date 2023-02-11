@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeDistination } from '../../redux/actions/actions';
+import { fetchHotels } from '../../redux/actions/actions';
 import './TopSection.css';
 import logo from '../../assets/svg/logo.svg';
 import night from '../../assets/svg/Night.svg';
@@ -14,12 +15,15 @@ import Filter from './Filter/Filter';
 import SignOut from './SignOut/SignOut';
 
 const TopSection = () => {
-  const [text, setText] = useState('');
   const [filterDisplay, setFilterDisplay] = useState(true);
   const [popUpButtonSignOutDisplay, setPopUpButtonSignOutDisplay] = useState('false');
+  const dist = useSelector((state) => state.dist);
+  const dateFrom = useSelector((state) => state.dateFrom);
+  const dateTo = useSelector((state) => state.dateTo);
   const adults = useSelector((state) => state.adults);
   const rooms = useSelector((state) => state.rooms);
   const children = useSelector((state) => state.children);
+
   const dispatch = useDispatch();
 
   const handleFilterDisplay = () => {
@@ -72,7 +76,7 @@ const TopSection = () => {
         <form>
           <input
             id="city_input"
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => dispatch(changeDistination(e.target.value))}
             placeholder="NewYork"
             type="search"
           />
@@ -80,7 +84,21 @@ const TopSection = () => {
           <div className="num_people_input" onClick={handleFilterDisplay}>
             {adults} Adults — {children} Children — {rooms} Room
           </div>
-          <div className="searchButton" onClick={() => dispatch(changeDistination(text))}>
+          <div
+            className="searchButton"
+            onClick={() =>
+              dispatch(
+                fetchHotels({
+                  dist: dist,
+                  adults: adults,
+                  children: children,
+                  rooms: rooms,
+                  dateFrom: dateFrom,
+                  dateTo: dateTo
+                })
+              )
+            }
+          >
             Search
           </div>
         </form>

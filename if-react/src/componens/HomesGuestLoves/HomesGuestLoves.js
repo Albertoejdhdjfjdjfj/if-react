@@ -6,13 +6,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import './HomesGuestLoves.css';
 
 function HomesGuestloves() {
-  const dist = useSelector((state) => state.dist);
-   
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchHotels())
-  })
   return (
     <div className="homesGuestloves">
       <h2>Homes guests loves</h2>

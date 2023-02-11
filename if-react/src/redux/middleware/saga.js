@@ -11,12 +11,12 @@ export function* fetchHotels(action) {
     yield put(requestHotels);
     const data = yield call(() => {
       return fetch(
-        `https://if-student-api.onrender.com/api/hotels?search=${action.payload.dist}&dateFrom=${action.payload.dateFrom}&dateTo=${action.payload.dateTo}&adults=${action.payload.adults}&children=${action.payload.children}&rooms=${action.payload.rooms}`
+        `https://if-student-api.onrender.com/api/hotels?search=${action.payload.dist}&dateFrom=${action.payload.dateFrom}&dateTo=${action.payload.dateTo}&adults=${action.payload.adults}&children=10,3&rooms=${action.payload.rooms}`
       ).then((res) => res.json());
     });
 
-    yield put(requestHotelsSuccess(data))
-  } catch(error) {
-     yield put(requestHotelsError());
+    yield put(requestHotelsSuccess(data));
+  } catch (error) {
+    yield put(requestHotelsError());
   }
 }
