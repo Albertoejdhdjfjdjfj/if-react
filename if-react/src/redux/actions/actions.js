@@ -8,7 +8,8 @@ import {
   REQUEST_HOTELS_SUCCESS,
   FETCH_HOTELS,
   CHANGE_DATE_FROM,
-  CHANGE_DATE_TO
+  CHANGE_DATE_TO,
+  CHANGE_CHILD_YEAR
 } from './actionsTypes';
 import { createAction } from 'redux-actions';
 
@@ -17,6 +18,8 @@ export const changeFilterAdults = createAction(CHANGE_FILTER_ADULTS);
 export const changeFilterRooms = createAction(CHANGE_FILTER_ROOMS);
 
 export const changeFilterChildren = createAction(CHANGE_FILTER_CHILDREN);
+
+export const changeChildrenYear = createAction(CHANGE_CHILD_YEAR);
 
 export const changeDistination = createAction(CHANGE_DISTINATION);
 

@@ -7,7 +7,8 @@ import {
   CHANGE_DATE_TO,
   REQUEST_HOTELS,
   REQUEST_HOTELS_ERROR,
-  REQUEST_HOTELS_SUCCESS
+  REQUEST_HOTELS_SUCCESS,
+  CHANGE_CHILD_YEAR
 } from '../actions/actionsTypes';
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   adults: 0,
   children: 0,
   rooms: 0,
+  childYears: '',
   dateFrom: new Date().getTime(),
   dateTo: new Date().getTime(),
   loading: false,
@@ -40,6 +42,12 @@ function Reducer(state = initialState, action) {
       return {
         ...state,
         children: action.payload
+      };
+
+    case CHANGE_CHILD_YEAR:
+      return {
+        ...state,
+        childYears: action.payload
       };
 
     case CHANGE_DISTINATION:

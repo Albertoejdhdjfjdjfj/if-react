@@ -23,7 +23,8 @@ const TopSection = () => {
   const adults = useSelector((state) => state.adults);
   const rooms = useSelector((state) => state.rooms);
   const children = useSelector((state) => state.children);
-
+  const childYears = useSelector((state) => state.childYears);
+ 
   const dispatch = useDispatch();
 
   const handleFilterDisplay = () => {
@@ -43,6 +44,16 @@ const TopSection = () => {
   };
 
   return (
+    dispatch(
+      fetchHotels({
+        dist: dist,
+        adults: adults,
+        childYears: childYears,
+        rooms: rooms,
+        dateFrom: dateFrom,
+        dateTo: dateTo
+      })
+    )&&
     <div>
       <div className="top_section" style={{ backgroundImage: `url(${background})` }}>
         <header>
@@ -91,7 +102,7 @@ const TopSection = () => {
                 fetchHotels({
                   dist: dist,
                   adults: adults,
-                  children: children,
+                  childYears: childYears,
                   rooms: rooms,
                   dateFrom: dateFrom,
                   dateTo: dateTo

@@ -3,7 +3,8 @@ import React from 'react';
 import {
   changeFilterAdults,
   changeFilterRooms,
-  changeFilterChildren
+  changeFilterChildren,
+  changeChildrenYear
 } from '../../../redux/actions/actions';
 import './Filter.css';
 
@@ -45,6 +46,20 @@ const Filter = () => {
     rooms + 1 > 30 ? dispatch(changeFilterRooms(30)) : dispatch(changeFilterRooms(rooms + 1));
   };
 
+  const childrenYears = () => {
+    let selectBox = document.getElementById('selectBox');
+    const selects = selectBox.children;
+    let str = '';
+    for (let i = 0; i < selects.length; i++) {
+      str += `${selects[i].value.slice(0, -10)}`;
+      if (selects[i] != selects[selects.length - 1]) {
+        str += ',';
+      }
+    }
+
+    dispatch(changeChildrenYear(str))
+  };
+
   return (
     <div className="filterBody" id="filterBody">
       <div className="wrapperOfFilter">
@@ -59,9 +74,21 @@ const Filter = () => {
         <div>
           <p>Children</p>{' '}
           <div>
-            <button onClick={handleClickButtonMinusChildren}>-</button>
+            <button
+              onClick={() => {
+                handleClickButtonMinusChildren(), childrenYears();
+              }}
+            >
+              -
+            </button>
             <p>{children}</p>
-            <button onClick={handleClickButtonPlusChildren}>+</button>
+            <button
+              onClick={() => {
+                handleClickButtonPlusChildren(), childrenYears();
+              }}
+            >
+              +
+            </button>
           </div>
         </div>
         <div>
@@ -77,7 +104,7 @@ const Filter = () => {
       <div className="selectsOfChildren" id={children > 0 ? 'flex' : 'none'}>
         <p>What is the age of the child you’re travelling with?</p>
 
-        <div id="selectBox"></div>
+        <div id="selectBox" onClick={childrenYears}></div>
       </div>
     </div>
   );
