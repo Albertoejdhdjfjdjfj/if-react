@@ -86,11 +86,3 @@
   border: 1px solid var(--font-col-blue);
   color: var(--font-col-blue);
 }
-
-#flex {
-  display: flex;
-}
-
-#none {
-  display: none;
-}

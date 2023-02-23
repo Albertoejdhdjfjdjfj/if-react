@@ -11,7 +11,7 @@ export function* fetchHotels(action) {
     yield put(requestHotels());
     const data = yield call(() => {
       return fetch(
-        `https://if-student-api.onrender.com/api/hotels?search=${action.payload.dist}`// `https://if-student-api.onrender.com/api/hotels?search=${action.payload.dist}&dateFrom=${action.payload.dateFrom}&dateTo=${action.payload.dateTo}&adults=${action.payload.adults}&children=${action.payload.childYears}&rooms=${action.payload.rooms}`
+        `https://if-student-api.onrender.com/api/hotels?search=${action.payload.dist}&adults=${action.payload.adults}&children=${action.payload.childYears}&rooms=${action.payload.rooms}`
       ).then((res) => res.json());
     });
 

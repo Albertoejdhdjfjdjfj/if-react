@@ -11,6 +11,7 @@ import {
   CHANGE_DATE_TO,
   CHANGE_CHILD_YEAR
 } from './actionsTypes';
+
 import { createAction } from 'redux-actions';
 
 export const changeFilterAdults = createAction(CHANGE_FILTER_ADULTS);
