@@ -17,38 +17,40 @@ const Filter = React.memo(({ display }) => {
 
   const dispatch = useDispatch();
 
-  const handleClickButtonMinusAdults = useCallback(() => {
+  const handleClickButtonMinusAdults = () => {
     adults - 1 < 0 ? dispatch(changeFilterAdults(0)) : dispatch(changeFilterAdults(adults - 1));
-    adults - 1 === 0 ? (dispatch(changeFilterChildren(0)), deleteAllSelects()) : '';
-  });
+    adults - 1 === 0
+      ? (dispatch(changeFilterChildren(0)), deleteAllSelects(), childrenYears())
+      : '';
+  };
 
-  const handleClickButtonPlusAdults = useCallback(() => {
+  const handleClickButtonPlusAdults = () => {
     adults + 1 > 30 ? dispatch(changeFilterAdults(30)) : dispatch(changeFilterAdults(adults + 1));
-  });
+  };
 
-  const handleClickButtonMinusChildren = useCallback(() => {
+  const handleClickButtonMinusChildren = () => {
     children - 1 < 0
       ? dispatch(changeFilterChildren(0))
       : (dispatch(changeFilterChildren(children - 1)), deleteSelect());
-  });
+  };
 
-  const handleClickButtonPlusChildren = useCallback(() => {
+  const handleClickButtonPlusChildren = () => {
     adults === 0
       ? ''
       : children + 1 > 10
       ? dispatch(changeFilterChildren(10))
       : (dispatch(changeFilterChildren(children + 1)), addSelect());
-  });
+  };
 
-  const handleClickButtonMinusRooms = useCallback(() => {
+  const handleClickButtonMinusRooms = () => {
     rooms - 1 < 0 ? dispatch(changeFilterRooms(0)) : dispatch(changeFilterRooms(rooms - 1));
-  });
+  };
 
-  const handleClickButtonPlusRooms = useCallback(() => {
+  const handleClickButtonPlusRooms = () => {
     rooms + 1 > 30 ? dispatch(changeFilterRooms(30)) : dispatch(changeFilterRooms(rooms + 1));
-  });
+  };
 
-  const childrenYears = useCallback(() => {
+  const childrenYears = () => {
     const selects = selectsRef.current.children;
     let str = '';
 
@@ -60,7 +62,7 @@ const Filter = React.memo(({ display }) => {
     }
 
     dispatch(changeChildrenYear(str));
-  });
+  };
 
   return (
     <div className="filterBody" id="filterBody" style={{ display: `${display ? 'flex' : 'none'}` }}>

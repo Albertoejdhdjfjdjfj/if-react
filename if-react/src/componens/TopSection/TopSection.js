@@ -14,7 +14,7 @@ import Calendar from './Calendar/Calendar';
 import Filter from './Filter/Filter';
 import SignOut from './SignOut/SignOut';
 
-const TopSection = React.memo(() => {
+const TopSection = () => {
   const [filterDisplay, setFilterDisplay] = useState(false);
   const [popUpButtonSignOutDisplay, setPopUpButtonSignOutDisplay] = useState(false);
 
@@ -125,6 +125,6 @@ const TopSection = React.memo(() => {
       </div>
     </div>
   );
-});
+};
 
 export default TopSection;
